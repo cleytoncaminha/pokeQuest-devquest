@@ -28,7 +28,7 @@ function PokeCard() {
   }
   const Button = (props) => {
     return (
-      <button className="btn" onClick={adcNumberPoke}>ver mais pokemons</button>
+      <button className="btn" onClick={adcNumberPoke}>Carregar Mais</button>
     )
   }
   console.log(numberPoke)
