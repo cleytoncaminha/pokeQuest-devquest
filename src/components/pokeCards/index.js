@@ -2,14 +2,20 @@ import { useEffect, useState } from "react";
 import { getPokemon, getPokemons } from "../../services/requestApi"
 
 const CardsList = (props) => {
-  const pokemonSprites = props.pokemon.map((element) => {
-    return element.sprites
-  })
+  const pokemons = props.pokemon
 
   return (
     <div>
-      {pokemonSprites.map((element, index) => {
-        return (<img key={index} src={element.front_default} alt='pokemon'></img>)
+      {pokemons.map((element, index) => {
+        return (<div key={index}>
+          <img src={element.sprites.front_default} alt={element.name}></img>
+          <p>{element.name}</p>
+          <p>{element.types.map((types, index) => {
+            return (
+              <span key={index}> {types.type.name}</span>
+            )
+          })}</p>
+        </div>)
       })}
 
     </div>
@@ -23,18 +29,18 @@ function PokeCard() {
   const [pokemons, setPokemons] = useState()
   const [numberPoke, setNumberPoke] = useState(10)
 
-  const adcNumberPoke = ()=>{
-    setNumberPoke(numberPoke+10)
+  const adcNumberPoke = () => {
+    setNumberPoke(numberPoke + 10)
   }
-  const Button = (props) => {
+  const Button = () => {
     return (
       <button className="btn" onClick={adcNumberPoke}>Carregar Mais</button>
     )
   }
-  console.log(numberPoke)
+
   useEffect(() => {
     const fetchData = async () => {
-     
+
 
       const data = await getPokemons(numberPoke)
       const urls = data.map((element) => {
@@ -53,7 +59,7 @@ function PokeCard() {
     }
     fetchData()
 
-  },[numberPoke])
+  }, [numberPoke])
 
 
   return (
