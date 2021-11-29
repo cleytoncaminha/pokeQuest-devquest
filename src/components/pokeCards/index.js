@@ -1,28 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPokemon, getPokemons } from "../../services/requestApi"
-
-const CardsList = (props) => {
-  const pokemons = props.pokemon
-
-  return (
-    <div>
-      {pokemons.map((element, index) => {
-        return (<div key={index}>
-          <img src={element.sprites.front_default} alt={element.name}></img>
-          <p>{element.name}</p>
-          <p>{element.types.map((types, index) => {
-            return (
-              <span key={index}> {types.type.name}</span>
-            )
-          })}</p>
-        </div>)
-      })}
-
-    </div>
-  )
-}
-
-
+import { CardsList } from "../pokeCard"
 
 function PokeCard() {
 
@@ -32,6 +10,7 @@ function PokeCard() {
   const adcNumberPoke = () => {
     setNumberPoke(numberPoke + 10)
   }
+
   const Button = () => {
     return (
       <button className="btn" onClick={adcNumberPoke}>Carregar Mais</button>
