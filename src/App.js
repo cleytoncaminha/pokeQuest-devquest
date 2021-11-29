@@ -1,10 +1,10 @@
-import PokeCard from './components/pokeCards'
+import {AppRoutes} from './routes'
 
 function App() {
   
    return (
     <div className="App">
-     <PokeCard></PokeCard>
+     <AppRoutes />
     </div>
   );
 }

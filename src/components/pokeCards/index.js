@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getPokemon, getPokemons } from "../../services/requestApi"
 import { CardsList } from "../pokeCard"
 
-function PokeCard() {
+function PokeCards() {
 
   const [pokemons, setPokemons] = useState()
   const [numberPoke, setNumberPoke] = useState(10)
@@ -22,16 +22,16 @@ function PokeCard() {
 
 
       const data = await getPokemons(numberPoke)
-      const urls = data.map((element) => {
+      const names = data.map((element) => {
         return (
-          element.url
+          element.name
         )
       })
-      const pokemonUrl = urls.map(async (element) => {
+      const pokemonName = names.map(async (element) => {
         const image = await getPokemon(element)
         return (image)
       })
-      const results = await Promise.all(pokemonUrl)
+      const results = await Promise.all(pokemonName)
 
       setPokemons(results)
 
@@ -43,10 +43,10 @@ function PokeCard() {
 
   return (
     <div className="pokeCards">
-      {pokemons !== undefined ? <CardsList pokemon={pokemons} /> : "nenhum pokemon encontrada"}
+      {pokemons !== undefined ? <CardsList pokemon={pokemons} /> : "Nenhum pokemon encontrado"}
       <Button />
     </div>
   );
 }
 
-export default PokeCard
+export {PokeCards}
