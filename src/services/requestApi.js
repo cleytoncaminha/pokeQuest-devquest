@@ -11,5 +11,11 @@ async function getPokemon(name){
     return pokemons
 }
 
+async function getPokeAbility(url){
+    const response = await fetch(url)
+    const pokemons = await response.json()
+    return pokemons
+}
 
-export {getPokemons, getPokemon}
+
+export {getPokemons, getPokemon, getPokeAbility}
