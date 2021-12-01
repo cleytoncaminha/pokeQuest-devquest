@@ -18,7 +18,7 @@ const Poke = () => {
     }, [])
 
     return (
-        <div className="pokeCards">
+    <div className="pokeCards">
       {pokemon !== undefined ? <PokeDetails pokemon={pokemon} /> : "Nenhum pokemon encontrado"}
     </div>
     )

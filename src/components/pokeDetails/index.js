@@ -22,22 +22,32 @@ const PokeDetails = (props) => {
         }
         fetchData()
     }, [])
+
+    console.log(ability)
     
     return ( 
         <div>
             <h1>{pokemon.name}</h1>
-            <img src={pokemon.sprites.front_default}></img>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name}></img>
             <p>{pokemon.types.map((types, index) => {
                 return (
                     <span key={index}> {types.type.name}</span>
                 )
             })}</p>
-            <h3>Lista de movimentos</h3>
+            <h3>moves list</h3>
              <p>{pokemon.moves.map((moves, index) => {
                             return (
                                 <span key={index}> {moves.move.name}</span>                                
                             )
-                        })}</p>                             
+                        })}</p>
+            <div><h3>Abilities</h3>
+                {ability !== undefined ? ability.map((ability,index)=>{
+                return (<div key={index}>
+                    <h4>{ability.name}</h4>
+                    <p>{ability.effect_entries[1].language.name === "en" ? ability.effect_entries[1].effect : ability.effect_entries[0].effect }</p>
+                    </div>
+                )
+            }) : "carregando habilidades" }</div>                    
         </div>
     )
 }
