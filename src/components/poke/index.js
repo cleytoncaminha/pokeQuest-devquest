@@ -8,9 +8,8 @@ const Poke = () => {
 
     const { name } = useParams()
 
-    
     useEffect(() => {
-        const fetchData = async () => { 
+        const fetchData = async () => {
             const data = await getPokemon(name)
             setPokemon(data)
         }
@@ -18,9 +17,9 @@ const Poke = () => {
     }, [])
 
     return (
-    <div className="pokeCards">
-      {pokemon !== undefined ? <PokeDetails pokemon={pokemon} /> : "Nenhum pokemon encontrado"}
-    </div>
+        <div>
+            {pokemon !== undefined ? <PokeDetails pokemon={pokemon} /> : "Nenhum pokemon encontrado"}
+        </div>
     )
 }
 

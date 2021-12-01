@@ -5,17 +5,17 @@ async function getPokemons(number) {
     return results
 }
 
-async function getPokemon(name){
+async function getPokemon(name) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
     const pokemons = await response.json()
     return pokemons
 }
 
-async function getPokeAbility(url){
+async function getPokeAbility(url) {
     const response = await fetch(url)
     const pokemons = await response.json()
     return pokemons
 }
 
 
-export {getPokemons, getPokemon, getPokeAbility}
+export { getPokemons, getPokemon, getPokeAbility }

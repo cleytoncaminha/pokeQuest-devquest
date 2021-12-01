@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getPokemon, getPokemons } from "../../services/requestApi"
 import { CardsList } from "../pokeCard"
 
-function PokeCards() {
+function PokeStart() {
 
   const [pokemons, setPokemons] = useState()
   const [numberPoke, setNumberPoke] = useState(10)
@@ -42,11 +42,11 @@ function PokeCards() {
 
 
   return (
-    <div className="pokeCards">
+    <div>
       {pokemons !== undefined ? <CardsList pokemon={pokemons} /> : "Nenhum pokemon encontrado"}
       <Button />
     </div>
   );
 }
 
-export {PokeCards}
+export { PokeStart }
