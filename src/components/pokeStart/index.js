@@ -43,7 +43,7 @@ function PokeStart() {
 
   return (
     <div>
-      {pokemons !== undefined ? <CardsList pokemon={pokemons} /> : "Nenhum pokemon encontrado"}
+      <div>{pokemons !== undefined ? <CardsList pokemon={pokemons} /> : "Nenhum pokemon encontrado"}</div>
       <Button />
     </div>
   );
