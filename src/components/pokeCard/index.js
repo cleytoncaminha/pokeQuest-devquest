@@ -8,17 +8,17 @@ const CardsList = (props) => {
         <Div>
             {pokemons.map((element, index) => {
                 return (<PokeList key={index}>
-                    <Link to={`/poke/${element.name}`} style={{ textDecoration: 'none' }}>
+                    <NavLink to={`/poke/${element.name}`}>
                         <div>
-                        <img src={element.sprites.front_default} alt={element.name}></img>
-                        <PokeName>{element.name}</PokeName>
-                        <div>{element.types.map((types, index) => {
-                            return (
-                                <span key={index}> {types.type.name}</span>
-                            )
-                        })}</div>
-                       </div>
-                    </Link>
+                            <img src={element.sprites.front_default} alt={element.name}></img>
+                            <div>{element.name}</div>
+                            <div>{element.types.map((types, index) => {
+                                return (
+                                    <span key={index}> {types.type.name}</span>
+                                )
+                            })}</div>
+                        </div>
+                    </NavLink>
                 </PokeList>)
             })}
         </Div>
@@ -26,7 +26,6 @@ const CardsList = (props) => {
 }
 
 const Div = styled.div`
-background-color: #1D63AB;
 display: flex;
 flex-wrap: wrap;
 padding:20px;
@@ -44,7 +43,10 @@ border-radius:20px;
 border: 3px solid #7E281B;
 box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.2)
 `
-const PokeName = styled.div`
-color: #161C1C;
+const NavLink = styled(Link)`
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+ 
 `
 export { CardsList }
