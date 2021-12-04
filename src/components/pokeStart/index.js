@@ -36,17 +36,14 @@ function PokeStart() {
 
 
   return (
-    <Div>
+    <div>
       <Logo>PokeQuest</Logo>
       <div>{pokemons.length > 0 ? <CardsList pokemon={pokemons} /> : "Nenhum pokemon encontrado"}</div>
       <ButtonDiv onClick={adcNumberPoke}>Show More</ButtonDiv>
-    </Div>
+    </div>
   );
 }
 
-const Div = styled.div`
-background-color: #1D63AB;
-`
 const ButtonDiv = styled.div`
 align-text: center;
 background-color: #d2ded4;
