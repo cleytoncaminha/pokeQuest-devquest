@@ -62,14 +62,19 @@ border-radius: 50px;
 &:active{
   color: #d2ded4;
   background-color: #73281b
+};
+@media (max-width: 768px){
+  width: 45%;
 }
 `
 const Logo = styled.div`
-color: yellow; 
-text-shadow:#000 2px -1px, #000 -1px 2px, #000 2px 1px, #000 -1px -1px;
+color: #FFCC01; 
+text-shadow:#000 2px -2px, #000 -1px 2px, #000 2px 1px, #000 -1px -1px;
 text-align: center;
 font-size: 500%;
-font-weight: 800,
+font-weight: 700;
 `
+
+
 
 export { PokeStart }

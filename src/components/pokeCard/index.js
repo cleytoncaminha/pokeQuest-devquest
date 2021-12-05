@@ -30,6 +30,10 @@ display: flex;
 flex-wrap: wrap;
 padding:20px;
 justify-content:center;
+@media (max-width: 768px){
+    display: block;
+    
+}
 `
 const PokeList = styled.div`
 background-color: #7AACBF;
@@ -41,7 +45,11 @@ padding-top: 20px;
 padding-bottom: 20px;
 border-radius:20px;
 border: 3px solid #7E281B;
-box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.2)
+box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.2);
+@media (max-width: 768px){
+    width: 50%;
+    margin: 3% auto
+}
 `
 const NavLink = styled(Link)`
   padding: 20px;

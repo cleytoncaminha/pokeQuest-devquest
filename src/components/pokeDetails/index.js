@@ -66,7 +66,10 @@ margin: auto;
 display: flex;
 align-items:center;
 justify-content: space-around;
-padding: 5px
+padding: 5px;
+@media (max-width: 768px){
+    display:block
+  }
 `
 
 const List = styled.ul`
@@ -81,7 +84,10 @@ text-transform: capitalize;
 `
 
 const Img = styled.img`
-width: 30%
+width: 30%;
+@media (max-width: 768px){
+    width: 50%
+  }
 `
 
 const Name = styled.h1`
@@ -95,6 +101,13 @@ width: 50%;
 background-color: #D2DED6;
 border-radius: 20px;
 border: 3px solid #7E281B;
+box-shadow: 1px 8px 8px 1px rgba(0, 0, 0, 0.2);
+padding:8px;
+@media (max-width: 768px){
+    width: 98%;
+    margin: auto;
+    padding: 0px
+  }
 `
 
 export { PokeDetails }
