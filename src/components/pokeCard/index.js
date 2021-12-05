@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 const CardsList = (props) => {
     const pokemons = props.pokemon
@@ -11,10 +11,10 @@ const CardsList = (props) => {
                     <NavLink to={`/poke/${element.name}`}>
                         <div>
                             <img src={element.sprites.front_default} alt={element.name}></img>
-                            <div>{element.name}</div>
+                            <Name>{element.name}</Name>
                             <div>{element.types.map((types, index) => {
                                 return (
-                                    <span key={index}> {types.type.name}</span>
+                                    <Type key={index} type={types.type.name}> {types.type.name}</Type>
                                 )
                             })}</div>
                         </div>
@@ -35,6 +35,7 @@ justify-content:center;
     
 }
 `
+
 const PokeList = styled.div`
 background-color: #7AACBF;
 margin: 5px;
@@ -51,9 +52,74 @@ box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.2);
     margin: 3% auto
 }
 `
+
+const Name = styled.div`
+font-size: 20px;
+font-weight: 500
+`
+
 const NavLink = styled(Link)`
   padding: 20px;
   color: black;
   text-decoration: none;
 `
+
+const Type = styled.span`
+border-radius: 5px;
+font-weight: 700;
+${props => props.type === "fire" && css`
+color:#B42126;
+`}
+${props => props.type === "bug" && css`
+color: #1C4B27
+`}
+${props => props.type === "normal" && css`
+color: #76525C
+`}
+${props => props.type === "fighting" && css`
+color: #EF613B
+`}
+${props => props.type === "flying" && css`
+color: #48667E
+`}
+${props => props.type === "poison" && css`
+color: #602b8d
+`}
+${props => props.type === "ground" && css`
+color: #a66f2c
+`}
+${props => props.type === "rock" && css`
+color: #49180a
+`}
+${props => props.type === "ghost" && css`
+color: #33326c
+`}
+${props => props.type === "steel" && css`
+color: #5d766e
+`}
+${props => props.type === "water" && css`
+color: #1552e1
+`}
+${props => props.type === "grass" && css`
+color: #157a3e
+`}
+${props => props.type === "electric" && css`
+color: #E2E429
+`}
+${props => props.type === "psychic" && css`
+color: #a22a6a
+`}
+${props => props.type === "ice" && css`
+color: #86D1F4
+`}
+${props => props.type === "dragon" && css`
+color: #438998
+`}
+${props => props.type === "dark" && css`
+color: #05060A
+`}
+${props => props.type === "fairy" && css`
+color: #EC1469
+`}`
+
 export { CardsList }

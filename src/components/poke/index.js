@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import { getPokemon } from "../../services/requestApi"
 import { useParams } from "react-router"
 import { PokeDetails } from "../pokeDetails"
-import styled from "styled-components"
 
 const Poke = () => {
     const [pokemon, setPokemon] = useState()
