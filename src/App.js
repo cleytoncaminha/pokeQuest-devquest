@@ -1,12 +1,15 @@
 import { AppRoutes } from './routes'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle} from 'styled-components'
+import {ThemeProvider} from './contexts/theme-context'
 
 function App() {
 
   return (
     <div className="App">
+      <ThemeProvider>
       <GlobalStyle />
       <AppRoutes />
+      </ThemeProvider>
     </div>
   );
 }
