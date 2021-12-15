@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getPokemon, getPokemons } from "../../services/requestApi"
 import { CardsList } from "../pokeCard"
-import styled from 'styled-components'
+import styled,{createGlobalStyle} from 'styled-components'
+import { ThemeToggler } from "../theme-toggler";
+import logopoke from "../../images/logopoke.png"
+import { ThemeContext } from "../../contexts/theme-context";
 
 function PokeStart() {
 
   const [pokemons, setPokemons] = useState([])
   const [numberPoke, setNumberPoke] = useState(10)
+
+  const {theme} = useContext(ThemeContext)
 
   const adcNumberPoke = () => {
     setNumberPoke(numberPoke + 10)
@@ -35,14 +40,21 @@ function PokeStart() {
   }, [numberPoke])
 
 
-  return (
-    <div>
-      <Logo>PokeQuest</Logo>
+  return (<div>
+    <GlobalStyle theme={theme} />
+    
+      <Logo><Img src={logopoke} alt="logo POKEMON"></Img></Logo>
+      <ThemeToggler/>
       <div>{pokemons.length > 0 ? <CardsList pokemon={pokemons} /> : "Nenhum pokemon encontrado"}</div>
       <ButtonDiv onClick={adcNumberPoke}>Show More</ButtonDiv>
     </div>
   );
 }
+
+const GlobalStyle = createGlobalStyle`
+  body{
+   background-color: ${props => props.theme.background};
+`
 
 const ButtonDiv = styled.div`
 align-text: center;
@@ -68,13 +80,15 @@ border-radius: 50px;
 }
 `
 const Logo = styled.div`
-color: #FFCC01; 
-text-shadow:#000 2px -2px, #000 -1px 2px, #000 2px 1px, #000 -1px -1px;
 text-align: center;
-font-size: 500%;
-font-weight: 700;
+margin: 5px;
+
 `
-
-
+const Img = styled.img`
+width: 45%;
+@media (max-width: 768px){
+  width: 100%;
+}
+`
 
 export { PokeStart }

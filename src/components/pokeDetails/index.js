@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { getPokeAbility } from "../../services/requestApi"
 import styled, {css} from 'styled-components'
+import { ThemeContext } from "../../contexts/theme-context"
 
 const PokeDetails = (props) => {
     const [ability, setAbility] = useState()
+    const {theme} = useContext(ThemeContext)
 
     const pokemon = props.pokemon
     const abilities = pokemon.abilities
@@ -26,9 +28,9 @@ const PokeDetails = (props) => {
 
     return (
         <div>
-            <Card>
+            <Card theme={theme}>
             <Img src={pokemon.sprites.front_default} alt={pokemon.name}></Img>
-            <Div>
+            <Div theme={theme}>
                 <Name>{pokemon.name}</Name>
            
             <p>{pokemon.types.map((types, index) => {
@@ -56,7 +58,7 @@ const PokeDetails = (props) => {
 }
 
 const Card = styled.div`
-background-color: #7AACBF;
+background-color: ${props => props.theme.card};
 text-align:center;
 width:90%;
 border-radius:20px;

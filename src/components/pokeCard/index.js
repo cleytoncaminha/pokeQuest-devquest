@@ -1,13 +1,17 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
+import { ThemeContext } from "../../contexts/theme-context"
 
 const CardsList = (props) => {
     const pokemons = props.pokemon
+    const {theme} = useContext(ThemeContext)
+    console.log(theme, 'card')
 
     return (
-        <Div>
+        <Div >
             {pokemons.map((element, index) => {
-                return (<PokeList key={index}>
+                return (<PokeList key={index} theme={theme}>
                     <NavLink to={`/poke/${element.name}`}>
                         <div>
                             <img src={element.sprites.front_default} alt={element.name}></img>
@@ -32,12 +36,11 @@ padding:20px;
 justify-content:center;
 @media (max-width: 768px){
     display: block;
-    
 }
 `
 
 const PokeList = styled.div`
-background-color: #7AACBF;
+background-color: ${props => props.theme.card};
 margin: 5px;
 text-align:center;
 width:25%;
