@@ -51,7 +51,7 @@ const PokeDetails = (props) => {
                         <p>{ability.effect_entries[1].language.name === "en" ? ability.effect_entries[1].effect : ability.effect_entries[0].effect}</p>
                     </div>
                     )
-                }) : "carregando habilidades"}</div></Div>
+                }) : "Loading Abilities"}</div></Div>
                 </Card>
         </div>
     )

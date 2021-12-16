@@ -45,7 +45,7 @@ function PokeStart() {
     
       <Logo><Img src={logopoke} alt="logo POKEMON"></Img></Logo>
       <ThemeToggler/>
-      <div>{pokemons.length > 0 ? <CardsList pokemon={pokemons} /> : "Nenhum pokemon encontrado"}</div>
+      <div>{pokemons.length > 0 ? <CardsList pokemon={pokemons} /> : "No pokemon found"}</div>
       <ButtonDiv onClick={adcNumberPoke}>Show More</ButtonDiv>
     </div>
   );

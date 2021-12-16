@@ -7,7 +7,7 @@ import { ThemeContext } from "../../contexts/theme-context"
 
 const Poke = () => {
     const [pokemon, setPokemon] = useState()
-    const {theme} = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
 
     const { name } = useParams()
 
@@ -20,11 +20,11 @@ const Poke = () => {
     }, [])
 
     return (
-       
-        <div> 
+
+        <div>
             <GlobalStyle theme={theme} />
             <div>
-            {pokemon !== undefined ? <PokeDetails pokemon={pokemon} /> : "Nenhum pokemon encontrado"}
+                {pokemon !== undefined ? <PokeDetails pokemon={pokemon} /> : "No pokemon found"}
             </div>
         </div>
     )
