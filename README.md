@@ -20,3 +20,11 @@ esse projeto tem como funcionalidades mostrar pokemons na pagina inicial e após
 
 uma das principais decisões foi o de colocar o tipo do pokemon na tela inicial, outra decisão foi colocar os temas clara e escuro como algo que refletisse a propria atmosfera do pokemon como Ash Ketchum ou tema Treinador como tema claro e tema escuro para Equipe Rocket
 
+## Para iniciar
+
+para iniciar siga os seguintes passos :
+--faça o clone normalmente do repositorio
+
+-- utilize o comando: npm intall
+
+-- utilize o comando: npm start
