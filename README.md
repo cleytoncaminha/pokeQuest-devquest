@@ -6,6 +6,8 @@ esse projeto foi proposto como desafio do curso DevQuest ele tem como proposito 
 
 esse projeto tem como funcionalidades mostrar pokemons na pagina inicial e após selecionar algum deles você verá os detalhes do mesmo assim como também poderá buscar pelo pokemon de sua preferencia para que possa ver seus detalhes.
 
+![Uploading chrome-capture.gif…]()
+
 ## Ferramentas utilizadas
 
 -- React: foi utilizada pelo seu potencial de SPA(single page aplication) o que contribui bastante para esse projeto
@@ -17,3 +19,4 @@ esse projeto tem como funcionalidades mostrar pokemons na pagina inicial e após
 ## Decisões aplicadas
 
 uma das principais decisões foi o de colocar o tipo do pokemon na tela inicial, outra decisão foi colocar os temas clara e escuro como algo que refletisse a propria atmosfera do pokemon como Ash Ketchum ou tema Treinador como tema claro e tema escuro para Equipe Rocket
+
