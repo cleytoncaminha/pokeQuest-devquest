@@ -7,7 +7,7 @@ const CardsList = (props) => {
     const pokemons = props.pokemon
     const {theme} = useContext(ThemeContext)
     console.log(theme, 'card')
-
+    console.log(pokemons, "pokecard")
     return (
         <Div >
             {pokemons.map((element, index) => {

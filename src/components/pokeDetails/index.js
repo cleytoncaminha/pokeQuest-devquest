@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from "react"
 import { getPokeAbility } from "../../services/requestApi"
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import { ThemeContext } from "../../contexts/theme-context"
 
 const PokeDetails = (props) => {
     const [ability, setAbility] = useState()
-    const {theme} = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
 
     const pokemon = props.pokemon
     const abilities = pokemon.abilities
@@ -29,30 +29,30 @@ const PokeDetails = (props) => {
     return (
         <div>
             <Card theme={theme}>
-            <Img src={pokemon.sprites.front_default} alt={pokemon.name}></Img>
-            <Div theme={theme}>
-                <Name>{pokemon.name}</Name>
-           
-            <p>{pokemon.types.map((types, index) => {
-                return (
-                    <Type key={index} type={types.type.name}> {types.type.name}</Type>
-                )
-            })}</p>
-            <h1>Moves List</h1>
-            <List>{pokemon.moves.map((moves, index) => {
-                return (
-                    <Itens key={index}>{moves.move.name}</Itens>
-                )
-            })}</List>
-            <div><h1>Abilities</h1>
-                {ability !== undefined ? ability.map((ability, index) => {
-                    return (<div key={index}>
-                        <h4>{ability.name}</h4>
-                        <p>{ability.effect_entries[1].language.name === "en" ? ability.effect_entries[1].effect : ability.effect_entries[0].effect}</p>
-                    </div>
-                    )
-                }) : "Loading Abilities"}</div></Div>
-                </Card>
+                <Img src={pokemon.sprites.front_default} alt={pokemon.name}></Img>
+                <Div theme={theme}>
+                    <Name>{pokemon.name}</Name>
+
+                    <p>{pokemon.types.map((types, index) => {
+                        return (
+                            <Type key={index} type={types.type.name}> {types.type.name}</Type>
+                        )
+                    })}</p>
+                    <h1>Moves List</h1>
+                    <List>{pokemon.moves.map((moves, index) => {
+                        return (
+                            <Itens key={index}>{moves.move.name}</Itens>
+                        )
+                    })}</List>
+                    <div><h1>Abilities</h1>
+                        {ability !== undefined ? ability.map((ability, index) => {
+                            return (<div key={index}>
+                                <h4>{ability.name}</h4>
+                                <p>{ability.effect_entries[1].language.name === "en" ? ability.effect_entries[1].effect : ability.effect_entries[0].effect}</p>
+                            </div>
+                            )
+                        }) : "Loading Abilities"}</div></Div>
+            </Card>
         </div>
     )
 }

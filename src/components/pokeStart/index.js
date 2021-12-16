@@ -1,20 +1,30 @@
 import { useContext, useEffect, useState } from "react";
 import { getPokemon, getPokemons } from "../../services/requestApi"
 import { CardsList } from "../pokeCard"
-import styled,{createGlobalStyle} from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { ThemeToggler } from "../theme-toggler";
 import logopoke from "../../images/logopoke.png"
 import { ThemeContext } from "../../contexts/theme-context";
+import { Button } from "../pokebutton";
+import { Link } from "react-router-dom"
 
 function PokeStart() {
 
   const [pokemons, setPokemons] = useState([])
   const [numberPoke, setNumberPoke] = useState(10)
 
-  const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
+
+  const [input, setInput] = useState(['pikachu'])
 
   const adcNumberPoke = () => {
     setNumberPoke(numberPoke + 10)
+  }
+
+  const inputChange = (event) => {
+    setInput(
+      [event.target.value]
+    )
   }
 
   useEffect(() => {
@@ -39,14 +49,21 @@ function PokeStart() {
     fetchData()
   }, [numberPoke])
 
+  return (
+    <div>
+      <GlobalStyle theme={theme} />
 
-  return (<div>
-    <GlobalStyle theme={theme} />
-    
       <Logo><Img src={logopoke} alt="logo POKEMON"></Img></Logo>
-      <ThemeToggler/>
-      <div>{pokemons.length > 0 ? <CardsList pokemon={pokemons} /> : "No pokemon found"}</div>
-      <ButtonDiv onClick={adcNumberPoke}>Show More</ButtonDiv>
+      <ThemeToggler />
+      <Div>
+        <form>
+          <Label htmlFor="search">Search your pokemon</Label>
+          <Input type="text" id="search" name="search" onChange={inputChange} value={input} onClick={() => setInput([])}></Input>
+          <NavLink NavLink to={`/poke/${input}`}><Button>Search</Button></NavLink>
+        </form>
+      </Div>
+      <div>{pokemons.length != undefined ? <CardsList pokemon={pokemons} /> : "No pokemon found"}</div>
+      <Button onClick={adcNumberPoke}>Show More</Button>
     </div>
   );
 }
@@ -56,29 +73,6 @@ const GlobalStyle = createGlobalStyle`
    background-color: ${props => props.theme.background};
 `
 
-const ButtonDiv = styled.div`
-align-text: center;
-background-color: #d2ded4;
-width: 10%;
-font-size: 20px;
-margin:auto;
-padding: 10px;
-text-align: center;
-color: #7E281B;
-font-weight : 700;
-border: 3px solid #7AACBF;
-border-radius: 50px;
-&:hover{
-  cursor: pointer
-};
-&:active{
-  color: #d2ded4;
-  background-color: #73281b
-};
-@media (max-width: 768px){
-  width: 45%;
-}
-`
 const Logo = styled.div`
 text-align: center;
 margin: 5px;
@@ -89,6 +83,26 @@ width: 45%;
 @media (max-width: 768px){
   width: 100%;
 }
+`
+const NavLink = styled(Link)`
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+`
+const Div = styled.div`
+text-align: center;
+color: yellow;
+`
+const Label = styled.label`
+display: block;
+padding: 3px;
+font-weight: 500;
+font-size: 20px
+`
+const Input = styled.input`
+margin: 10px;
+height: 30px;
+font-size: 25px
 `
 
 export { PokeStart }
