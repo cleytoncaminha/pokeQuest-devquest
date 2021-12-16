@@ -24,7 +24,7 @@ uma das principais decisões foi o de colocar o tipo do pokemon na tela inicial,
 
 para iniciar siga os seguintes passos :
 
---faça o clone normalmente do repositorio
+-- faça o clone normalmente do repositorio
 
 -- utilize o comando: npm intall
 
