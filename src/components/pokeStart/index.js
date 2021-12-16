@@ -3,7 +3,7 @@ import { getPokemon, getPokemons } from "../../services/requestApi"
 import { CardsList } from "../pokeCard"
 import styled, { createGlobalStyle } from 'styled-components'
 import { ThemeToggler } from "../theme-toggler";
-import logopoke from "../../images/logopoke.png"
+import logopoke from "../../assets/logopoke.png"
 import { ThemeContext } from "../../contexts/theme-context";
 import { Button } from "../pokebutton";
 import { Link } from "react-router-dom"

@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { ThemeContext, themes } from "../../contexts/theme-context"
-import ashhat from "../../images/ashhat.png"
-import rocket from "../../images/rocket.png"
+import ashhat from "../../assets/ashhat.png"
+import rocket from "../../assets/rocket.png"
 
 export const ThemeToggler = () => {
     const { theme, setTheme } = useContext(ThemeContext)
