@@ -15,7 +15,7 @@ function PokeStart() {
 
   const { theme } = useContext(ThemeContext)
 
-  const [input, setInput] = useState(['pikachu'])
+  const [input, setInput] = useState('pikachu')
 
   const adcNumberPoke = () => {
     setNumberPoke(numberPoke + 10)
@@ -51,26 +51,32 @@ function PokeStart() {
 
   return (
     <div>
-      <GlobalStyle theme={theme} />
-
-      <Logo><Img src={logopoke} alt="logo POKEMON"></Img></Logo>
-      <ThemeToggler />
-      <Div>
-        <form>
-          <Label htmlFor="search">Search your pokemon</Label>
-          <Input type="text" id="search" name="search" onChange={inputChange} value={input} onClick={() => setInput([])}></Input>
-          <NavLink NavLink to={`/poke/${input}`}><Button>Search</Button></NavLink>
-        </form>
-      </Div>
-      <div>{pokemons.length != undefined ? <CardsList pokemon={pokemons} /> : "No pokemon found"}</div>
-      <Button onClick={adcNumberPoke}>Show More</Button>
+      <header>
+        <MainStyle theme={theme} />
+        <Logo><Img src={logopoke} alt="logo POKEMON"></Img></Logo>
+        <ThemeToggler />
+      </header>
+      <main>
+        <Div>
+          <form>
+            <Label htmlFor="search">Search your pokemon</Label>
+            <Input type="text" id="search" name="search" onChange={inputChange} value={input} onClick={() => setInput('')}></Input>
+            <Button> <NavLink to={`/poke/${input}`}>Search</NavLink></Button>
+          </form>
+        </Div>
+        <div>{pokemons.length !== undefined ? <CardsList pokemon={pokemons} /> : "No pokemon found"}</div>
+      </main>
+      <footer>
+        <Button onClick={adcNumberPoke}>Show More</Button>
+      </footer>
     </div>
   );
 }
 
-const GlobalStyle = createGlobalStyle`
+const MainStyle = createGlobalStyle`
   body{
    background-color: ${props => props.theme.background};
+  }
 `
 
 const Logo = styled.div`

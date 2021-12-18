@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from "react"
 import { getPokeAbility } from "../../services/requestApi"
 import styled, { css } from 'styled-components'
 import { ThemeContext } from "../../contexts/theme-context"
+import { Button } from "../pokebutton"
+import { Link } from "react-router-dom"
 
 const PokeDetails = (props) => {
     const [ability, setAbility] = useState()
@@ -51,7 +53,10 @@ const PokeDetails = (props) => {
                                 <p>{ability.effect_entries[1].language.name === "en" ? ability.effect_entries[1].effect : ability.effect_entries[0].effect}</p>
                             </div>
                             )
-                        }) : "Loading Abilities"}</div></Div>
+                        }) : "Loading Abilities"}</div>
+                        <Button><NavLink to={`/`}>Back</NavLink></Button>
+                </Div>
+
             </Card>
         </div>
     )
@@ -110,6 +115,11 @@ padding:8px;
     margin: auto;
     padding: 0px
   }
+`
+const NavLink = styled(Link)`
+  padding: 20px;
+  color: black;
+  text-decoration: none;
 `
 const Type = styled.span`
 border-radius: 5px;

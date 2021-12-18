@@ -5,9 +5,8 @@ import { ThemeContext } from "../../contexts/theme-context"
 
 const CardsList = (props) => {
     const pokemons = props.pokemon
-    const {theme} = useContext(ThemeContext)
-    console.log(theme, 'card')
-    console.log(pokemons, "pokecard")
+    const { theme } = useContext(ThemeContext)
+
     return (
         <Div >
             {pokemons.map((element, index) => {
@@ -50,6 +49,13 @@ padding-bottom: 20px;
 border-radius:20px;
 border: 3px solid #7E281B;
 box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.2);
+font-size: 20px;
+transition: all 300ms ease-in-out;
+&:hover{
+    cursor: pointer;
+    border: 10px solid #7E281B;
+     font-size: 30px;
+  };
 @media (max-width: 768px){
     width: 50%;
     margin: 3% auto
@@ -57,8 +63,8 @@ box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.2);
 `
 
 const Name = styled.div`
-font-size: 20px;
-font-weight: 500
+font-weight: 500;
+
 `
 
 const NavLink = styled(Link)`

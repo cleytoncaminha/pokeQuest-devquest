@@ -37,7 +37,6 @@ justify-content: center;
 const Img = styled.img`
 width: 100%; 
 box-sizing:border-box;
-padding:5px;
 &:hover{
     border: 1px solid red;
     border-radius: 5px;
@@ -45,6 +44,8 @@ padding:5px;
 `
 const DivImg = styled.div`
 width:5%;
+cursor:pointer;
+margin-left: 2px;
 @media (max-width: 768px){
     width:10%;
     margin: auto;
