@@ -6,7 +6,7 @@ esse projeto foi proposto como desafio do curso DevQuest ele tem como propósito
 
 Esse projeto tem como funcionalidades mostrar pokemons na página inicial e após selecionar algum deles você verá os detalhes do mesmo assim como também poderá buscar pelo pokemon de sua preferência para que possa ver seus detalhes.
 
-<p align="center"><img width="470" src="src/assets/toReadMeGif.gif"></p>
+<p align="center"><img width="470" src="src/assets/pokequest.gif"></p>
 
 ## Ferramentas utilizadas
 
