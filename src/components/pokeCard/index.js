@@ -31,7 +31,7 @@ const CardsList = (props) => {
 const Div = styled.div`
 display: flex;
 flex-wrap: wrap;
-padding:20px;
+padding: 20px;
 justify-content:center;
 @media (max-width: 768px){
     display: block;
@@ -40,7 +40,8 @@ justify-content:center;
 
 const PokeList = styled.div`
 background-color: ${props => props.theme.card};
-margin: 5px;
+margin:10px;
+height: 20rem;
 text-align:center;
 width:25%;
 align-itens:center;
@@ -51,10 +52,11 @@ border: 3px solid #7E281B;
 box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.2);
 font-size: 20px;
 transition: all 300ms ease-in-out;
+box-sizing: border-box;
 &:hover{
     cursor: pointer;
     border: 10px solid #7E281B;
-     font-size: 30px;
+  
   };
 @media (max-width: 768px){
     width: 50%;

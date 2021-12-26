@@ -43,7 +43,7 @@ box-sizing:border-box;
     };
 `
 const DivImg = styled.div`
-width:5%;
+width:3%;
 cursor:pointer;
 margin-left: 2px;
 @media (max-width: 768px){
