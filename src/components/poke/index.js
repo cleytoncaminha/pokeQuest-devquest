@@ -18,7 +18,6 @@ const Poke = () => {
         }
         fetchData()
     }, [])
-    console.log(pokemon)
     return (
 
         <div>
