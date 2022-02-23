@@ -5,7 +5,7 @@ import ashhat from "../../assets/ashhat.png"
 import rocket from "../../assets/rocket.png"
 
 export const ThemeToggler = () => {
-    const { theme, setTheme } = useContext(ThemeContext)
+    const { setTheme } = useContext(ThemeContext)
 
 
     return (

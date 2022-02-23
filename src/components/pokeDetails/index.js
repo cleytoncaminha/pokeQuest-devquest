@@ -8,14 +8,17 @@ import { Link } from "react-router-dom"
 const PokeDetails = (props) => {
     const [ability, setAbility] = useState()
     const { theme } = useContext(ThemeContext)
-
     const pokemon = props.pokemon
-    const abilities = pokemon.abilities
-    const abilitiesUrl = abilities.map((element) => {
-        return element.ability.url
-    })
+    
+
 
     useEffect(() => {
+        
+        const abilities = pokemon.abilities
+
+        const abilitiesUrl = abilities.map((element) => {
+            return element.ability.url
+        })
         const fetchData = async () => {
             const data = abilitiesUrl.map(async (element) => {
                 return (
@@ -54,7 +57,7 @@ const PokeDetails = (props) => {
                             </div>
                             )
                         }) : "Loading Abilities"}</div>
-                        <Button><NavLink to={`/`}>Back</NavLink></Button>
+                    <Button><NavLink to={`/`}>Back</NavLink></Button>
                 </Div>
 
             </Card>
